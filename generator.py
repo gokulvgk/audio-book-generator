@@ -9,6 +9,7 @@ root =Tk()
 root.title("Text-to-speech conversion with translation")
 root.geometry("1000x800")
 root.iconbitmap("speaker-image.ico")
+languages=['']*6
 def open_dialog():
     root.inputfilename =  filedialog.askopenfilename(initialdir = "/",title = "Select file",filetypes = (("text files","*.txt"),("all files","*.*")))
     file_path_label = Label(root, text=root.inputfilename).pack()
@@ -41,7 +42,6 @@ def convert():
 # Loop through each language and convert the text to speech
     with open(input_file, 'r') as file:
         text = file.read()
-        languages = ['en','fr','nl','es','de','ta']  # Add more target languages as needed
         for lang in languages:
             translated_text = translate_text(text, lang)
             output_file = os.path.join(output_directory, f'output_{lang}.mp3')
@@ -59,22 +59,22 @@ takes_time.pack(padx=20, pady=20)
 def check():
     if en_var.get():
         enselected = Label(root, text="English selected")
-        enselected.pack()
+        languages[0]='en'
     if fr_var.get():
         frselected = Label(root, text="French selected")
-        frselected.pack()
+        languages[1]='fr'
     if nl_var.get():
         nlselected = Label(root, text="Dutch selected")
-        nlselected.pack()
+        languages[2]='nl'
     if es_var.get():
         esselected = Label(root, text="Spanish selected")
-        esselected.pack()
+        languages[3]='es'
     if de_var.get():
         deselected = Label(root, text="German selected")
-        deselected.pack()
+        languages[4]='de'
     if ta_var.get():
         taselected = Label(root, text="Tamil selected")
-        taselected.pack()
+        languages[5]='ta'
 # initializing tkinter variables to keep track of which checkbox is selected
 en_var= IntVar() 
 fr_var= IntVar()
