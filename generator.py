@@ -1,6 +1,13 @@
 import mymodule
+
 mymodule.root.title("Text-to-speech conversion with translation")
-mymodule.root.geometry("1000x800")
+# Get the screen width and height
+screen_width = mymodule.root.winfo_screenwidth()
+screen_height = mymodule.root.winfo_screenheight()
+
+# Set the window size to cover the entire screen
+mymodule.root.geometry(f"{screen_width}x{screen_height}+0+0")
+
 mymodule.root.iconbitmap("speaker-image.ico")     
 prompt_label = mymodule.Label(mymodule.root, text="Convert any text file into an audio file").pack()
 browsebutton = mymodule.Button(mymodule.root, text="browse files", command=mymodule.open_dialog, fg="blue", bg="silver").pack(padx=20, pady=20)

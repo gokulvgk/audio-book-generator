@@ -4,6 +4,7 @@
 - ~~adding warning messageboxes~~
 - dynamic array that supports appending elements to store languages
 - embedded mp3 player
+- ~~spawning busy cursor when covert() is called~~
 - ## designing and styling UI
     - framing
     - color palette choosing
