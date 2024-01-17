@@ -5,6 +5,7 @@ from tkinter import *
 from tkinter import messagebox
 from tkinter import filedialog
 import subprocess
+import time
 
 # creating a new tkinter window named root
 root =Tk()
@@ -83,7 +84,12 @@ def convert(languages):
     except:
         messagebox.showwarning("Warning", "Please select a file")
         return
-   
+# To show the cursor as a watch
+    root.configure(cursor="watch")
+# to give some time for tkinter to update the mainloop 
+    time.sleep(0.1)
+# This line updates the Tkinter main loop, which allows the GUI to respond to changes. It's used here to ensure that the cursor change is immediately visible.
+    root.update()
 # Loop through each language and convert the text to speech
     for lang in languages:
         # exception handling for non-selected languages
@@ -94,3 +100,4 @@ def convert(languages):
         except:
             pass                            
     infolabel = Label(root, text="your audio files are ready").pack(padx=20, pady=20)
+    root.configure(cursor="arrow")
